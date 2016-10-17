@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml" ng-app = "SampleApp">
+<head>
+	<title>ng-if</title>
+	
+	<script src = "angular.js"></script>
+	<link href = "bootstrap.css" rel = "stylesheet" />
+	<link href = "bootstrap-theme.css" rel = "stylesheet" />
+	<script>
+		var app = angular.module("SampleApp", []);
+		
+		app.controller("SampleAppCtrl", function ($scope) {
+			$scope.selectedClass = "lightGreen";
+			$scope.classNames = [{ displayName: "Light Green", value: "lightGreen" },
+								{ displayName: "Light Blue", value: "lightBlue" },
+								{ displayName: "Light Coral", value: "lightCoral" }];
+			});
+	</script>
+	<style>
+		.lightGreen {
+			background-color: lightgreen;
+		}
+		.lightBlue {
+			background-color: lightblue;
+		}
+		.lightCoral {
+			background-color: lightcoral;
+		}
+		.test-div {
+			border:1px solid black;
+			width:100px;
+			height:100px;
+			padding:10px;
+		}
+	</style>
+<body ng-controller = "SampleAppCtrl">
+	<div class = "container">
+		<div class = "row well">
+			<div class = "radio" ng-repeat = "item in classNames">
+				<label>
+					<input type = "radio" name = "color" ng-model = "$parent.selectedClass" value = "{{item.value}}" /> {{item.displayName}}
+				</label>
+			</div>
+		</div>
+		<div class = "test-div" ng-class = "selectedClass">{{selectedClass}}</div>
+	</div>
+</html>

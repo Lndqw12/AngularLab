@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml" ng-app = "SampleApp">
+<head>
+	<title>ng-show &amp; ng-hide</title>
+	<script src = "angular.js"></script>
+	<script src = "new.js"></script>
+	<link href = "new.css" rel = "stylesheet" />
+	<link href = "bootstrap.css" rel = "stylesheet" />
+	<link href = "bootstrap-theme.css" rel = "stylesheet" />
+<body ng-controller = "SampleAppCtrl">
+	<div>
+		<input type = "checkbox" ng-model = "hideElem1" />Hide Element 1 <br/>
+		<input type = "checkbox" ng-model = "hideElem2" />Hide Element 2 <br/>
+		<input type = "checkbox" ng-model = "hideElem3" />Hide Element 3 <br/>
+	</div>
+	
+	<div id = "d1" ng-hide = "hideElem1">Element 1 </div>
+	<div id = "d2" ng-hide = "hideElem2">Element 2 </div>
+	<div id = "d3" ng-hide = "hideElem3">Element 3 </div>
+</html>

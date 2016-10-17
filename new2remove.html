@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml" ng-app = "SampleApp">
+<head>
+	<title>ng-if</title>
+	
+	<script src = "angular.js"></script>
+	<link href = "bootstrap.css" rel = "stylesheet" />
+	<link href = "bootstrap-theme.css" rel = "stylesheet" />
+	<script>
+		var app = angular.module("SampleApp", []);
+		
+		app.controller("SampleAppCtrl", function ($scope) {
+			$scope.removeElem1 = true;
+			$scope.removeElem2 = true;
+			$scope.removeElem3 = true;
+			});
+	</script>
+	<style>
+		div {
+	display: inline-block;
+	border: 1px solid gray;
+	border-radius: 3px;
+	margin: 14px;
+	padding: 30px;
+	}
+#d1{
+	background-color: lightgreen;
+	}
+#d2{
+	background-color: lightcoral;
+	}
+#d3{
+	background-color: lightblue;
+	}
+	</style>
+<body ng-controller = "SampleAppCtrl">
+	<div>
+		<input type = "checkbox" ng-model = "removeElem1" />remove Element 1 <br/>
+		<input type = "checkbox" ng-model = "removeElem2" />remove Element 2 <br/>
+		<input type = "checkbox" ng-model = "removeElem3" />remove Element 3
+	</div>
+	
+	<div id = "d1" ng-if = "removeElem1">Element 1 </div>
+	<div id = "d2" ng-if = "removeElem2">Element 2 </div>
+	<div id = "d3" ng-if = "removeElem3">Element 3 </div>
+</html>

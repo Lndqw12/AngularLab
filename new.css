@@ -1,0 +1,17 @@
+﻿div {
+	display: inline-block;
+	border: 1px solid gray;
+	border-radius: 3px;
+	margin: 14px;
+	padding: 30px;
+	}
+#d1{
+	background-color: lightgreen;
+	}
+#d2{
+	background-color: lightyellow;
+	}
+#d3{
+	background-color: lightblue;
+	}
+/* https://www.youtube.com/watch?v=jcWAkuc8G_Y */
