@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html ng-app="sampleApp">
+	<head>
+		<meta charset="utf-8">
+			<title>Basic Validation</title>
+		<link href="bootstrap.css" rel="stylesheet"/>
+		<link href="bootstrap.min.css" rel="stylesheet"/>
+		<link href="bootstrap-theme.css" rel="stylesheet"/>
+		<link href="bootstrap-theme.min.css" rel="stylesheet"/>
+		<script src="angular.js"></script>
+	<script>
+		angular.module("sampleApp", [])
+		.controller("defaultCtrl", function ($scope) {
+			$scope.addNewUser = function (userDetails) {
+			$scope.message = userDetails.name
+		+ " (" + userDetails.email + ") (" + userDetails.agreed + ")";
+	}
+			$scope.message = "Ready";
+	});
+	</script>
+<style>
+	form .ng-invalid-email.ng-dirty{
+	background-color: lightpink;
+}
+	form .ng-invalid-email.ng-dirty{
+	background-color: lightgoldenrodyellow;
+}
+	form .ng-invalid.ng-dirty{
+	background-color: lightgreen;
+}
+	span.summary.ng-invalid{
+	color: red;
+	font-weight: bold;
+}
+	span.summary.hg-valid{
+	color: green;
+}
+	div.error{
+	color: red;
+	font-weight:bold;
+}
+</style> 
+	</head>
+<body>
+	<div class = "panel" style = "width:300px" ng-controller = "defaultCtrl">
+		<form name = "myForm" novalidate ng-submit = "addNewUser(newUser)">
+			<div class = "well">
+				<div class = "form-group">
+					<label>Name:</label>
+					<input name = "userName" type = "text" class = "form-control" required ng-model = "newUser.name">
+				</div>
+				<div class = "form-group">
+					<label>Email:</label>
+					<input name = "userEmail" type = "email" class = "form-control" required ng-model = "newUser.email">
+				</div>
+		<div class = "error" ng-show = "myForm.userEmail.$invalid && myForm.userEmail.$dirty">
+			<span ng-show = "myForm.userEmail.$error.email">
+				Введите свой email
+			</span>
+			<span ng-show = "myForm.userEmail.$error.required">
+				Поле не должно быть пустым!
+			</span>
+		</div>
+				</div>
+			<div class = "checkbox">
+				<label>
+					<input name = "agreed" type = "checkbox" ng-model = "newUser.agreed" required>
+						Я согласен с условиями использования
+					</label>
+			</div>
+					<button type = "submit" class = "btn btn-primary btn-block" ng-disabled = "myForm.$invalid">
+						ок
+					</button>
+	</div>
+	<div class = "well">
+		Message: {{message}}
+	</div>
+		Valid:
+	<span class = "sumary" ng-class = "myForm.$valid ? 'ng-valid' : 'ng-invalid'">
+		{{myForm.$valid}}
+	</span>
+	</div>
+		</form>
+	</div>
+</body>
+</html>
