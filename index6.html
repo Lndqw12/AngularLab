@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml" ng-app="sampleApp">
+	<head>
+		<meta charset="utf-8">
+		<script src="angular.js"></script>
+		<script src="mainn.js"></script>
+	</head>
+<body>
+	<div ng-controller = "baseCtrl">
+		<p>{{value}}</p>
+		<button ng-click = "changeValue1()">change Value 1</button>
+		<div ng-controller = "derivedCrtl">
+			<p>{{value}}</p>
+			<button ng-click = "changeValue1()">change Value 1</button>
+			<button ng-click = "changeValue2()">change Value 2</button>
+		</div>
+	</div>
+</body>
+</html>
