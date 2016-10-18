@@ -2,7 +2,7 @@
 <html xmlns = "http://www.w3.org/1999/xhtml" ng-app="sampleApp">
 <head>
 	<meta charset="utf-8">
-	<title>$Emit</title>
+	<title>$emit</title>
 	<script src="angular.js"></script>
 	<script src="mainnnn.js"></script>
 </head>
@@ -19,7 +19,7 @@
 				<p>Controller 3</p>
 				<p>Received message - {{info}}</p>
 				
-				<input in-model = "messageInput" />
+				<input ng-model = "messageInput" />
 				<button ng-click = "send()">Send</button>
 			</div>
 		</div>
