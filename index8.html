@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml" ng-app="sampleApp">
+<head>
+	<meta charset="utf-8">
+	<title>$Emit</title>
+	<script src="angular.js"></script>
+	<script src="mainnnn.js"></script>
+</head>
+<body>
+	<div ng-controller = "testCtrl">
+		<p>Controller 1</p>
+		<p>Received message - {{info}}</p>
+	
+		<div ng-controller = "testCtrl">
+			<p>Controller 2</p>
+			<p>Received message - {{info}}</p>
+		
+			<div ng-controller = "testCtrl">
+				<p>Controller 3</p>
+				<p>Received message - {{info}}</p>
+				
+				<input in-model = "messageInput" />
+				<button ng-click = "send()">Send</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
