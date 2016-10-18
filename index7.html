@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml" ng-app="sampleApp">
+<head>
+	<meta charset="utf-8">
+	<title>$Broadcast</title>
+	<script src="angular.js"></script>
+	<script src="mainnn.js"></script>
+</head>
+<body>
+	<div ng-controller = "senderCtrl">
+		<p>Sender</p>
+		<input ng-model = "messageInput" />
+		<button ng-click = "send()">send</button>
+	</div>
+	
+	<div ng-controller = "receiverCtrl">
+		<p>Receiver 1</p>
+		<p>Received message - {{info}}</p>
+	</div>
+	
+	<div ng-controller = "receiverCtrl">
+		<p>Receiver 2</p>
+		<p>Received message - {{info}}</p>
+	</div>
+</body>
+</html>
