@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+<title>MMM3</title>
+<script src="angular.js"></script>
+<link href="bootstrap-theme.css" rel="stylesheet" />
+<link href="bootstrap.css" rel="stylesheet" />
+<script>
+angular.module("exampleApp",[])
+.directive("orderedList",function(){
+return function(scope,element,attributes){
+var data=scope[attributes["orderedList"]];
+var expression = attributes["displayProperty"];
+if (angular.isArray(data)){
+var e = angular.element("<ul>");
+element.append(e);
+for (var i=0; i < data.length; i++){
+(function () {
+var item = angular.element('<li>');
+e.append(item);
+var index = i;
+var watcherFunction = function (watchScope) {
+return watchScope.$eval(expression, data[index]);
+}
+scope.$watch(watcherFunction, function (newValue, oldValue) {
+item.text(newValue);
+});
+}());
+}
+}
+}
+})
+.controller("defaultCtrl",function($scope){
+$scope.items=[
+{name:"Table",price:44.10},
+{name:"Chair",price:21.20},
+{name:"Pillow",price:12.20},
+{name:"Picture",price:112.70},
+{name:"Lamp",price:28.31}
+];
+$scope.changePrices = function () {
+for (var i = 0; i < $scope.items.length; i++) {
+$scope.items[i].price*=2;
+}
+}
+$scope.changePrices1 = function () {
+for (var i = 0; i < $scope.items.length; i++) {
+$scope.items[i].price+=2;
+}
+}
+});
+</script>
+</head>
+<body ng-controller="defaultCtrl">
+<div class="panel panel-primary">
+<div class="panel-heading">
+<h3> Items</h3>
+</div>
+<div class="panel-body">
+<button class = "btn btn-success" ng-click = "changePrices()">
+<h4>Change Prices *</h4>
+</button>
+<button class = "btn btn-success" ng-click = "changePrices1()">
+<h4>Change Prices +</h4>
+</button>
+</div>
+<div class = "panel-body h3">
+<div ordered-list="items" display-property="price | currency"></div>
+</div>
+</div>
+</body>
+</html>
